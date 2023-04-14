@@ -5,7 +5,7 @@
     :dark="darkMode"
     :elevation="darkMode ? 0 : 2"
   >
-    <v-toolbar-title>My App</v-toolbar-title>
+    <v-toolbar-title>My Portfolio</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-switch
       v-model="darkModeValue"
@@ -43,6 +43,7 @@ export default {
       this.$emit('update:darkMode', this.darkModeValue);
       this.$vuetify.theme.dark = this.darkModeValue;
       localStorage.setItem('darkMode', this.darkModeValue);
+      this.$emit('dark-mode-toggled'); // emit custom event
     },
   },
 };

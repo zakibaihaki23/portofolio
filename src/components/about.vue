@@ -16,7 +16,7 @@
           <ul
             class="timeline m-0 pt-1"
             v-for="(e, idx) in data.data"
-            :key="e.name"
+            :key="e.id"
             :style="{ 'transition-delay': idx / 4.2 + 's' }"
             data-aos="fade-up"
             data-offset="10"
@@ -36,14 +36,14 @@
                 <div class="px-2 pb-2 pt-2" style="text-align: justify;">
                   {{ e.description }}
                 </div>
-                <span
-                  class="mx-2 badge p-2 mb-2"
+                <v-chip
+                  class="ma-2"
+                  color="primary"
                   v-for="s in e.skills"
                   :key="s"
-                  :class="{ 'bg-dark2': nightMode }"
-                  >{{ s }}</span
                 >
-                <p class="m-2"></p>
+                  {{ s }}
+                </v-chip>
               </div>
             </li>
           </ul>
@@ -63,6 +63,15 @@ export default {
     nightMode: {
       type: Boolean,
     },
+  },
+  data() {
+    return {
+      darkMode: localStorage.getItem('darkMode') === 'true' || false
+    };
+  },
+  created() {
+    // Set the Vuetify theme based on the initial value of the darkMode property
+    this.$vuetify.theme.dark = this.darkMode;
   },
 };
 </script>

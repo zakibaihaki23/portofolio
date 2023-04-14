@@ -43,6 +43,7 @@ export default {
         title: "Experiences",
         data: [
           {
+            id: 1,
             name: "PT. Eden Pangan Indonesia (Eden Farm)",
             date: "March 2022 - Present",
             position: "Front-End Developer",
@@ -50,6 +51,7 @@ export default {
             skills: ["VueJS", "Golang", "React Native", "Flutter", "JavaSript", "leafletjs"]
           },
           {
+            id: 2,
             name: "PT. Eden Pangan Indonesia (Eden Farm)",
             date: "February 2021 - April 2021",
             position: "Front-End Developer",
@@ -57,6 +59,7 @@ export default {
             skills: ["Javascript", "VueJS"]
           },
           {
+            id: 3,
             name: "Information and Information Technology Codes and Statistics Office of Pandeglang Regency",
             date: "22 July - 23 August 2019",
             position: "Pranata Komputer",
