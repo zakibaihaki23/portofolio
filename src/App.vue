@@ -1,64 +1,39 @@
 <template>
-  <v-app>
-    <loadingOverlay
-      :overlay="overlay"
-    />
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <div>
-          <v-icon dark>
-            mdi-home
-          </v-icon>
-        </div>
-        <div style="margin-left: 15px; font-size: 20px; font-weight: bolder">
-          My Portofolio
-        </div>
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
+  <v-app :dark="darkMode">
     <v-main>
+      <loadingOverlay :overlay="loadingOverlay" />
+      <navbar :darkMode="darkMode" @update:darkMode="darkMode = $event" />
       <firstSection />
-      <HelloWorld/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-import firstSection from './views/firstSection';
+import navbar from './components/navbar';
 import loadingOverlay from './components/loadingOverlay';
+import firstSection from './views/firstSection';
 
 export default {
-  name: 'App',
+  components: {
+    navbar,
+    loadingOverlay,
+    firstSection,
+  },
   data() {
     return {
-      overlay: true,
-    }
+      darkMode: localStorage.getItem('darkMode') === 'true' || false,
+      loadingOverlay: true,
+    };
   },
-
-  components: {
-    HelloWorld,
-    firstSection,
-    loadingOverlay,
+  created() {
+    // Set the Vuetify theme based on the initial value of the darkMode property
+    this.$vuetify.theme.dark = this.darkMode;
   },
-
   mounted() {
-    document.title = 'My Portofolio'
+    document.title = 'My Portfolio';
+    setTimeout(() => {
+      this.loadingOverlay = false;
+    }, 2000);
   },
 };
 </script>
