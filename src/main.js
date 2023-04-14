@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
+import FooterSection from './components/footer.vue'
 
 Vue.config.productionTip = false
+Vue.component('footer-section', FooterSection);
 
 // create a new Vuetify theme with a default light mode
 const theme = {
