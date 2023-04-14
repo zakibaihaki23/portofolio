@@ -1,28 +1,22 @@
 <template>
   <v-app>
+    <loadingOverlay
+      :overlay="overlay"
+    />
     <v-app-bar
       app
       color="primary"
       dark
     >
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <div>
+          <v-icon dark>
+            mdi-home
+          </v-icon>
+        </div>
+        <div style="margin-left: 15px; font-size: 20px; font-weight: bolder">
+          My Portofolio
+        </div>
       </div>
 
       <v-spacer></v-spacer>
@@ -38,6 +32,7 @@
     </v-app-bar>
 
     <v-main>
+      <firstSection />
       <HelloWorld/>
     </v-main>
   </v-app>
@@ -45,16 +40,25 @@
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import firstSection from './views/firstSection';
+import loadingOverlay from './components/loadingOverlay';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      overlay: true,
+    }
+  },
 
   components: {
     HelloWorld,
+    firstSection,
+    loadingOverlay,
   },
 
-  data: () => ({
-    //
-  }),
+  mounted() {
+    document.title = 'My Portofolio'
+  },
 };
 </script>
