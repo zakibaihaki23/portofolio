@@ -5,6 +5,7 @@
       <navbar :darkMode="darkMode" @update:darkMode="darkMode = $event" />
       <firstSection />
     </v-main>
+    <footer-section></footer-section>
   </v-app>
 </template>
 

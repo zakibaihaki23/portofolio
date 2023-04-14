@@ -49,6 +49,16 @@ export default {
 </script>
 
 <style scoped>
+  .v-app-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+  .v-content {
+    margin-top: 64px; /* adjust this value based on your app bar height */
+  }
   .v-switch__label {
     font-size: 14px;
     font-weight: 500;
